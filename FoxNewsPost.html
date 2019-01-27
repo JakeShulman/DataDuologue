@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Data Duologue</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- Custom styles for this template -->
+    <link href="css/clean-blog.min.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">Data Duologue</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          Menu
+          <i class="fa fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="post.html">Archive</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Contact Us</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="masthead" style="background-image: url('img/foxbackground.jpg')">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="post-heading">
+              <h1>Exploring the Racial Dimension of Fox News</h1>
+              <h2 class="subheading">Constructing a vector space from 15 years of Fox News</h2>
+              <span class="meta">Posted by
+                <a href="#">Luke Farrell</a>
+                August 28, 2017</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Post Content -->
+    <article>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <p>Machine learning algorithms are optimized to model statistical properties of the data they are fed. In much the same way humans develop a world view, the models of the world that these algorithms produce are a direct reflection of the data about the world they consume. As a result, data scientists go to great lengths to ensure that the data being fed into their algorithms represent an accurate view of the world.  However, what happens if the data you feed an algorithm comes from a narrow and distorted view of the world. What happens if an algorithm’s understanding of English comes not from Wikipedia, but instead from Fox News.</p>
+
+
+			<p>Word embedding is a cutting-edge machine learning technique that generates a vector space of a vocabulary from sample text. The placement of words in this vector space capture the semantic meaning and relationships of words with remarkable accuracy. For example, in a well-trained model, by adding the vector value of [“King”] and [“Woman”] and subtracting out the value of [“Man”] the vector for [“Queen”] is returned. This analogy task makes clear the presence of a meaningful gender dimension, a highly complex concept captured by the model. Another remarkable finding showed that overlaying the vector spaces of different languages places words with similar meanings in similar locations in vector space, suggesting that the algorithm captures semantic meaning of words that transcend even language.</p>
+			<img src="img/KingQueen.png" alt="exampleKQ">
+
+
+			<p>This powerful technique is extremely promising, and has become increasingly used in Natural Language Processing to understand the complex relationships of words across the many dimensions of language. However, to accurately define the vector space of the English language an accurate sample of it is required. Google has gone to great lengths to do just that, aggregating over 3 Billion words across the internet to build massive training sets from which they construct their models. In doing so they have captured a holistic view of the English language from which the algorithm can build its understanding of the world.</p>
+
+
+			<p>However, unlike Google's representative sample of the world, I fed a word2vec model your grandpa’s prescription dose of Sean Hannity, Tucker Carlson, and Bill O’Rielly.  I collected every word spoken on Fox news from the past 15 years that the law would allow. In all, over 50 million words spoken on air formed the foundation of the vector space. The English language through the mouth piece of Fox News.</p>
+
+
+			<p>At a glance, this model was unremarkable and closely resembled the results Google had obtained with their <a href = https://code.google.com/archive/p/word2vec/> open source model </a>. The Fox News model could accurately group global religions and performed nearly as well on the capital-common-counties test as Google’s 3-billion-word model. The Fox News model even captured an unbiased understand of “President”, clustering the words Obama, Bush, Trump, and Regan most closely to one another.</p>
+
+
+			<p>Test after test seemed to suggest that a world view constructed entirely by Fox News was no different than one that sampled all of Wikipedia. Then I stumbled upon an analogy task that illuminated the distinctiveness of the word embedding I had built and the world view that informed it.</p>
+
+
+			<p>[“black”]+[”cop”]-[“white”]. Semantically it amounts to “White is to Cop as Black is to ____”. On Google’s model “chief” was returned as the top result. 
+			Fox News’ returned “murderer”. </p>
+
+
+			<p>The results that followed made the distinction no less obvious. “Killer”, “gang”, “criminal”, “rapist”, “shooter” and “thug” all showed up among the top results. I quickly wanted to make sure it wasn’t just the analogy so I performed the reverse: “Black is to Cop as White is to ____”. The results: “reporter”, “speaker”, “officer”, “gentleman”, “prosecutor”, “agent”. The only words with negative connotation that appeared were “hacker”, “gunman”, and “misdemeanor”.</p>
+
+
+			<p>Further analysis showed that this distinction was not only present in the analogy I had stumbled upon. Rather this racism was an inherent characteristic of word embedding built by the words spoken on Fox News for the past 15 years. The vector space had a strange, exaggerated dimension not present in the model built by Google: a racial dimension.</p>
+			<img src="img/FoxNewsGraph.png" alt="Foxgraph">
+
+			<p>When closely examining this inflated racial dimension a mathematically quantifiable prejudice was evident. The distorted semantic understanding of English that the algorithm had developed lead it to create negative, violent associations with African-Americans and other minority groups. Fox’s language had created an overtly racist vision of reality not present in a representative sample of the English language. And while critical viewer of Sean Hannity wouldn’t necessarily deem this conclusion a revelation, there is something to be said about mathematically defining and quantifying the racism present in the world view Fox News constructs.</p>
+
+
+			<p> If the input data reflects stereotypes and biases, then the output of the learning algorithm also captures these stereotypes. And just as this model becomes a projection of the data that it consumes, so do we.</p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <ul class="list-inline text-center">
+              <li class="list-inline-item">
+                <a href="#">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+            </ul>
+            <p class="copyright text-muted">Copyright &copy; DataDuologue 2017</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="js/clean-blog.min.js"></script>
+
+  </body>
+
+</html>
